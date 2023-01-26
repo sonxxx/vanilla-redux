@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addToDo, deleteToDo } from '../store';
+import { add, addToDo, deleteToDo, remove } from '../store';
 
 const Home = () => {
   const [text, setText] = useState("");
@@ -19,13 +19,13 @@ const Home = () => {
   }
 
   const addBtn = () => {
-    dispatch(addToDo(text));
+    dispatch(add(text));
    
   }
 
   const deleteBtn = (e) => {
     const id = parseInt(e.target.parentNode.id);
-    dispatch(deleteToDo(id));
+    dispatch(remove(id));
   }
 
   return (
